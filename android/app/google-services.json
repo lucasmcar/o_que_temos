@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "922221814710",
+    "project_id": "o-que-temos",
+    "storage_bucket": "o-que-temos.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922221814710:android:0d9499fe99445cf3d6d717",
+        "android_client_info": {
+          "package_name": "com.example.o_que_temos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "922221814710-5utm2dsh3sjpb750gtskucd4ig6vi41i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDCQAfwew1ALXzn7vubB1XQ7762vevc_0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "922221814710-5utm2dsh3sjpb750gtskucd4ig6vi41i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
