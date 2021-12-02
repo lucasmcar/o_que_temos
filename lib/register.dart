@@ -9,6 +9,36 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  TextEditingController _controllerNome = TextEditingController();
+  TextEditingController _controllerEmail = TextEditingController();
+  TextEditingController _controllerSenha = TextEditingController();
+  String _msgError = "";
+
+  _validarCampos() {
+    String nome = _controllerNome.text;
+    String email = _controllerEmail.text;
+    String senha = _controllerSenha.text;
+
+    if (nome.isNotEmpty && nome.length >= 3) {
+      if (email.isNotEmpty && email.contains("@")) {
+        if (senha.isNotEmpty && senha.length > 5) {
+        } else {
+          setState(() {
+            _msgError = "A senha deve possuir mais de 5 caracteres";
+          });
+        }
+      } else {
+        setState(() {
+          _msgError = "Preencha o email corretamente";
+        });
+      }
+    } else {
+      setState(() {
+        _msgError = "Preencha o nome corretamente";
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,6 +71,7 @@ class _RegisterState extends State<Register> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: TextField(
+                    controller: _controllerNome,
                     autofocus: true,
                     keyboardType: TextInputType.text,
                     style: const TextStyle(color: Colors.red, fontSize: 20),
@@ -56,6 +87,7 @@ class _RegisterState extends State<Register> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: TextField(
+                    controller: _controllerEmail,
                     keyboardType: TextInputType.emailAddress,
                     style: const TextStyle(color: Colors.red, fontSize: 20),
                     decoration: InputDecoration(
@@ -68,7 +100,9 @@ class _RegisterState extends State<Register> {
                   ),
                 ),
                 TextField(
+                  controller: _controllerSenha,
                   autofocus: true,
+                  obscureText: true,
                   keyboardType: TextInputType.text,
                   style: const TextStyle(color: Colors.red, fontSize: 20),
                   decoration: InputDecoration(
@@ -90,7 +124,13 @@ class _RegisterState extends State<Register> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(6)),
                   ),
-                )
+                ),
+                Center(
+                  child: Text(
+                    _msgError,
+                    style: const TextStyle(color: Colors.red, fontSize: 20),
+                  ),
+                ),
               ],
             ),
           ),

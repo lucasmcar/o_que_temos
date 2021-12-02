@@ -1,8 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import 'login.dart';
 
 void main() {
+  final moviesRef = FirebaseFirestore.instance
+      .collection('usuario')
+      .doc('001')
+      .set({'nome': 'Lucas'});
+
   runApp(MaterialApp(
     home: const Login(),
     theme: ThemeData(
